@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>AudioFy - Trim and merge audio in browser</title>
+	<title>Edit Audio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-ios.css">
 	<link rel="icon" type="image/jpg" href="assets/logo.jpg">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <!-- main wavesurfer.js lib -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.2.3/wavesurfer.min.js"></script>
@@ -18,23 +20,27 @@
 
 <script src="actionhelper.js"></script>
 <script src="audio.js"></script>
-<body onLoad="showTour()">
-	<div class="w3-container">
+<body onLoad="showTour()" style="font-family: adobe-clean, Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu,
+Trebuchet MS, Lucida Grande, sans-serif; font-size:18px">
+	<div class="body-style">
 	  <br>
-	  <div id="waveform" class="w3-border w3-round-large" 
+	  <div class="title" style="font-size:30px; font-weight:bold">	
+		  Edit Audio
+  	</div>
+	  <div id="waveform" class="w3-border w3-round-large w3-hide" 
 	  	data-step="3" data-intro="Click and drag to select section">	
 	  </div>
 	  <br>
 	    <div class="w3-row">
 	    <div class="w3-half w3-container w3-hide" id="audio-buttons">
-		<button class="w3-button w3-border w3-border-green w3-round-xlarge" onClick="playAndPause()">
+		<button class="w3-button w3-border w3-round-xlarge" onClick="playAndPause()">
 			<i id="play-pause-icon" class="fa fa-play"></i>
 		</button>
 
 		<b id="time-current">0.00</b> / <b id="time-total">0.00</b>
 		</div>
-		<div class="w3-half w3-container">
-		<input id="audio-file" type="file" onChange="loadAudio()"
+		<div class="w3-half w3-container file-upload-wrapper">
+		<input id="audio-file" type="file" onChange="loadAudio()" class="file-upload"
 			data-step="2" data-intro="Select a MP3 File">
 	    </div>
 		</div>
@@ -43,13 +49,13 @@
 	  	  <table class="w3-table-all w3-card-4" id="audio-tracks" 
 	  	  	data-step="5" data-intro="Select atleast 2 checkboxes for merging. Click Next.">
 		   	<thead>
-		    <tr class="w3-border w3-border-teal w3-text-teal">
-		      <th></th>
+		    <tr class="w3-border">
+		      <th>Select</th>
 		      <th>Start</th>
 		      <th>End</th>
-		      <th></th>
-		      <th></th>
-		      <th></th>
+		      <th>Play</th>
+		      <th>Download</th>
+		      <th>Delete</th>
 		    </tr>
 			</thead>
 			<tbody></tbody>
@@ -58,7 +64,7 @@
 		  </div>
 		  <br>
 		  <div id="merge-option" class="w3-hide">
-			<button class="w3-button w3-border w3-border-teal w3-round-xlarge" onClick="mergeTrack()"
+			<button class="w3-button w3-border w3-round-xlarge" onClick="mergeTrack()"
 				data-step="6" data-intro="Click to merge selected tracks. Bye bye!! :)">
 				<i>Merge tracks</i>
 			</button>	 
