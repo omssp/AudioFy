@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit Audio</title>
+	<title>Split & Merge Audio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-ios.css">
@@ -23,34 +23,45 @@
 <body onLoad="showTour()" style="font-family: adobe-clean, Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu,
 Trebuchet MS, Lucida Grande, sans-serif; font-size:15px">
 	<div class="body-style">
+
 	  <br>
 	  <div class="title" style="font-size:25px; font-weight:bold">	
-		  Edit Audio
+		  Split & Merge Audio
   	</div>
+	
 	  <div id="waveform" class="w3-border w3-round-large w3-hide" 
 	  	data-step="3" data-intro="Click and drag to select section">	
 	  </div>
 	  <br>
-	    <div class="w3-row">
+	    <div class="w3-row" style="font-family: adobe-clean, Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu,
+		Trebuchet MS, Lucida Grande, sans-serif; font-size:18px">
 	    <div class="w3-half w3-container w3-hide" id="audio-buttons">
+			<label>Play/Pause   </label>
 		<button class="w3-button w3-border w3-round-xlarge" onClick="playAndPause()">
 			<i id="play-pause-icon" class="fa fa-play"></i>
 		</button>
 
-		<b id="time-current">0.00</b> / <b id="time-total">0.00</b>
+		<b id="time-current" >0.00</b> / <b id="time-total">0.00</b>
 		</div>
-		<div class="w3-half w3-container file-upload-wrapper">
-		<input id="audio-file" type="file" onChange="loadAudio()" class="file-upload"
-			data-step="2" data-intro="Select a MP3 File">
+		<div class="">
+			<label class="custom-file-upload">
+				<input id="audio-file" type="file" onChange="loadAudio()"
+				data-step="2" data-intro="Select a MP3 File">
+				<i class="fa fa-cloud-upload"></i> Upload Audio
+			</label>
+
 	    </div>
+		
 		</div>
-	  <hr>
+		<div class="w3-hide" id="table-section">
+	  	<hr>
 	  	  <div data-step="4" data-intro="Would you like to know how to merge tracks. Click Next.">
 	  	  <table class="w3-table-all w3-card-4" id="audio-tracks" 
-	  	  	data-step="5" data-intro="Select atleast 2 checkboxes for merging. Click Next.">
+	  	  	data-step="5" data-intro="Select atleast 2 checkboxes for merging. Click Next." style="font-family: adobe-clean, Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu,
+				Trebuchet MS, Lucida Grande, sans-serif; font-size:18px">
 		   	<thead>
 		    <tr class="w3-border">
-		      <th>Select</th>
+		      <th>Select Tracks</th>
 		      <th>Start</th>
 		      <th>End</th>
 		      <th>Play</th>
@@ -63,21 +74,23 @@ Trebuchet MS, Lucida Grande, sans-serif; font-size:15px">
 		  </table>
 		  </div>
 		  <br>
-		  <div id="merge-option" class="w3-hide">
+		  <div id="merge-option" class="w3-hide" style="font-family: adobe-clean, Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu,
+		  Trebuchet MS, Lucida Grande, sans-serif; font-size:18px">
 			<button class="w3-button w3-border w3-round-xlarge" onClick="mergeTrack()"
 				data-step="6" data-intro="Click to merge selected tracks. Bye bye!! :)">
-				<i>Merge tracks</i>
+				Merge Selected Tracks
 			</button>	 
 			<br><br>
 			<div class="w3-row w3-hide" id="merged-track-div">
-			<b class="w3-col l1 w3-text-olive"><i>Merged Audio : </i></b>	
+			<b class="w3-col l1">Merged Audio:</b>	
 			<audio controls="controls" class="w3-col l11" id="merged-track">
 				<source src="" type="">
 			</audio>
 			</div>
 		  </div>
-	  <footer class="w3-display-bottom">
+	 	 <footer class="w3-display-bottom">
 	  	<hr>
+	</div>
 	  	<image id="tour-button" class="w3-right" src="assets/tutorial.png" width="40" height="40" onClick="startTour()" data-step="1" data-intro="Hey User, Welcome. Click me for a walkthrough. To skip click Skip.">
 	  </footer>
 	</div>

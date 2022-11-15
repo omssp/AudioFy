@@ -1,5 +1,6 @@
 .my-border {
   border-style: dashed;
+  background-color: lightgrey;
 }
 
 body {
@@ -8,7 +9,7 @@ body {
 }
 
 .body-style {
-  margin: 120px;
+  margin: 150px;
   text-align: center;
   border-style: dashed;
   padding: 30px;
@@ -49,5 +50,22 @@ body {
 .title {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: -15px;
+}
+
+.table-class{
+  display: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+ left:50%;
+ color: rgb(43, 43, 126);
 }

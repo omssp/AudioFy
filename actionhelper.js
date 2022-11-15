@@ -8,6 +8,8 @@ var intro;
 
 function showAndHideMergeOption() {
   var audioTracks = document.getElementById("audio-tracks");
+  const section = document.getElementById("table-section");
+  section.classList.replace("w3-hide", "w3-show");
   var mergeOption = document.getElementById("merge-option");
   if (audioTracks.childNodes.length >= 4) {
     mergeOption.setAttribute("class", "w3-show");
