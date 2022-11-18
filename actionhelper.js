@@ -18,10 +18,15 @@ function showAndHideMergeOption() {
   }
 }
 
-function createAudioRow(arr) {
+function createAudioRow(arr, num) {
   var tableRow = document.createElement("tr");
   tableRow.setAttribute("id", arr[0]);
-  tableRow.setAttribute("class", "w3-hover-text-blue");
+  tableRow.setAttribute("class", "w3-hover-light-grey");
+  var tableHeading = document.createElement("td");
+  tableHeading.innerText = `Track-${num}`;
+  // tableHeading.setAttribute("style", "background-color: rgb(108 117 125)");
+  tableHeading.setAttribute("style", "color: rgb(90 103 216)");
+  tableRow.appendChild(tableHeading);
   //tableRow.setAttribute("onmouseover", "highlightRegion('over','"+arr[0]+"')");
   //tableRow.setAttribute("onmouseleave", "highlightRegion('leave','"+arr[0]+"')");
   for (var i in arr) {
@@ -29,7 +34,9 @@ function createAudioRow(arr) {
     if (i == 0) {
       tableData = document.createElement("input");
       tableData.setAttribute("type", "checkbox");
+      tableData.checked = true;
       tableData.setAttribute("class", "w3-check w3-margin-left");
+      tableData.setAttribute("style", "display:none;");
     } else {
       tableData = document.createElement("td");
       tableData.innerText = arr[i].toFixed(4);
@@ -43,8 +50,8 @@ function createAudioRow(arr) {
     { action: "download", iconClass: "fa fa-download" },
     { action: "delete", iconClass: "fa fa-times" }
   );
+  var tableData = document.createElement("td");
   for (var i = 0; i < actionsArray.length; i++) {
-    var tableData = document.createElement("td");
     tableData.setAttribute("id", arr[0] + "-" + actionsArray[i].action);
     var dataIcon = document.createElement("button");
     dataIcon.setAttribute("title", actionsArray[i].action);

@@ -18,13 +18,13 @@ body {
 
 #audio-tracks {
   font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   width: 100%;
 }
 
 #audio-tracks td,
 #audio-tracks th {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   padding: 8px;
   text-align: center;
 }
@@ -77,15 +77,16 @@ input[type="file"] {
 
 #table-section {
   margin-top: 20px;
-  border-bottom: gainsboro;
+  overflow-x: scroll;
 }
 
 #table-wrapper {
   position: relative;
+ 
 }
 
 #table-scroll {
-  height: 200px;
+  height: 245px;
   overflow: auto;
   margin-top: 20px;
   /* border: 1px solid rgb(211 211 211); */
@@ -93,14 +94,43 @@ input[type="file"] {
 #table-wrapper table {
   width: 100%;
 }
-/* #table-wrapper table * {
-  background: yellow;
-  color: black;
-} */
+
 #table-wrapper table thead th .text {
   position: absolute;
   top: -20px;
   z-index: 2;
   height: 20px;
   width: 35%;
+}
+
+#time-current,
+#time-total {
+  font-size: 20px;
+}
+
+#time-current {
+  margin-left: 5px;
+}
+
+thead,
+tfoot {
+  display: none;
+}
+
+table {
+  background: none !important;
+  border: none !important;
+}
+
+tr {
+  display: inline-block;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  margin: 1rem;
+  border: 1px solid grey;
+  border-radius 10px;
+  box-shadow: 0 0 10px;
+}
+
+td {
+  display: block;
 }

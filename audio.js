@@ -1,6 +1,7 @@
 async function readAndDecodeAudio() {
   arrBuffer = null;
   audioBuffer = null;
+  selectedregion = 0;
 
   //Read the original Audio
   await readAudio(audioFile)
@@ -239,8 +240,10 @@ function loadAudio() {
   wavesurfer.on("region-created", function (newRegion) {
     var audioTracks = document.getElementById("audio-tracks").tBodies[0];
     console.log(audioTracks.childNodes);
+    selectedregion++;
     var tableRow = createAudioRow(
-      new Array(newRegion.id, newRegion.start, newRegion.end)
+      new Array(newRegion.id, newRegion.start, newRegion.end),
+      selectedregion
     );
     audioTracks.appendChild(tableRow);
     showAndHideMergeOption();
@@ -262,7 +265,7 @@ function loadAudio() {
     .replace("w3-hide", "w3-show");
   audioButtons.setAttribute("class", audioButtonsClass);
   var uploadButton = document.getElementById("upload-label");
-  uploadButton.setAttribute("style", "background-color: grey;");
+  uploadButton.setAttribute("style", "display:none");
   const heading = document.getElementById("heading-container");
   heading.innerHTML =
     "Select segments you wish to trim/merge using click and drag";
