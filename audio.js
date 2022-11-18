@@ -263,7 +263,6 @@ function loadAudio() {
   audioButtons.setAttribute("class", audioButtonsClass);
   var uploadButton = document.getElementById("upload-label");
   uploadButton.setAttribute("style", "background-color: grey;");
-  uploadButton.innerHTML = "Upload Another Audio";
   const heading = document.getElementById("heading-container");
   heading.innerHTML =
     "Select segments you wish to trim/merge using click and drag";
