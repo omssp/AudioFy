@@ -1,5 +1,5 @@
 # AudioFly
-A webapp to trim audio in browser itself (i.e on frontend itself) Have a look at app [here](https://vinit-dantkale.github.io/AudioFy/).
+A webapp to trim audio in browser itself (i.e on frontend itself) Have a look at app [here](https://arpitanath.github.io).
 
 Libraries Used:
 1. [LameJs](https://github.com/zhuker/lamejs) - Used to Encode Audio.
